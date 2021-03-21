@@ -8,7 +8,7 @@
   },
   "scripts": {
     "devstart": "nodemon server.js",
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "test": "mocha --timeout 5000 --require @babel/register --recursive --exit --ui tdd tests/"
   },
   "dependencies": {
