@@ -150,12 +150,20 @@ td {
           }
 
           .sudoku-input:nth-of-type(2n + 0) {
-            background-color: rgba(143, 188, 143, 0.7);
+            background-color: rgb(172, 206, 173);
           }
 
           .sudoku-input:nth-of-type(2n + 1) {
-            background-color: rgba(143, 188, 143, 0.3);
+            background-color: rgb(213, 230, 212);
           }
+
+            .sudoku-input .field {
+              background-color: inherit;
+              border: none;
+              max-width: 1rem;
+              outline: none;
+              text-align: center;
+            }
 
           .C1, .C2, .C3, .C4, .C5, .C6, .C7, .C8, .C9, .F1, .F2, .F3, .F4, .F5, .F6, .F7, .F8, .F9 {
             border-bottom: 3px solid rgba(143, 188, 143);
