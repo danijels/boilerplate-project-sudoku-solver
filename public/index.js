@@ -53,7 +53,8 @@ function fillpuzzle(data) {
 }
 
 async function getSolved() {
-  const stuff = {"puzzle": textArea.value}
+  const stuff = { "puzzle": textArea.value }
+  errorMsg.innerText = "Please wait, this might take me some time..."
   const data = await fetch("/api/solve", {
     method: "POST",
     headers: {
