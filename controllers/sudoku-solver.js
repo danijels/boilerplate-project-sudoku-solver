@@ -62,6 +62,7 @@ class SudokuSolver {
   }
 
   solve(puzzleString) {
+    debugger;
     const board = this.makeTable(puzzleString);
     //This part transforms the sudoku table in a way that each dot is replaced 
     //with the correct coordinate of that cell (A0 - I8)
@@ -103,7 +104,7 @@ class SudokuSolver {
     const cell = incomplete[0];
     const row = cell[0];
     const col = cell[1];
-
+    
     for (let i = 1; i <= 9; i++) {
       const val = String(i);
       const valid = this.checkRowPlacement(board, row, val)
