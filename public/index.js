@@ -17,17 +17,29 @@ textArea.addEventListener("input", () => {
 cells.forEach(cell => cell.addEventListener("input", (e) => {
   const val = Number(e.target.value);
 
-  if ((val <= 9 && val >= 1) || e.target.value == '') {
+  if ((val <= 9 && val >= 1) || e.target.value == '') {    
     const coordinate = e.target.className.split(' ')[0];
-    coordInput.value = coordinate;
+    showCoordinate(coordinate);
     valInput.value = val ? val : '.';    
     placeValue()
   } else {
     cell.value = '';
-    coordInput.value = '';
     valInput.value = '';
   }
 }));
+
+cells.forEach(cell => cell.addEventListener("focus", (e) => {  
+  const classN = e.target.className;
+  const coordinate = classN.split(' ')[0];
+  
+  const val = document.getElementsByClassName(classN)[0].value;
+  valInput.value = val;
+  showCoordinate(coordinate);
+}));
+
+function showCoordinate(name) {  
+  coordInput.value = name;
+}
 
 async function randomPuzzle() {
   const res = await fetch('./public/puzzles.json');
@@ -119,7 +131,7 @@ async function getChecked() {
       ['G7', 'G8', 'G9', 'H7', 'H8', 'H9', 'I7', 'I8', 'I9']
     ];
 
-    if (parsed.valid) errorMsg.innerHTML = `<p>Valid!</p>`;
+    if (parsed.valid) errorMsg.innerHTML = `<p>Valid!</p>`
     else {
       const coord = stuff.coordinate.toUpperCase().split("");
       const val = stuff.value;
